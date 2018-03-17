@@ -1,0 +1,24 @@
+module BookKeeping
+  VERSION = 4
+end
+
+class Complement
+  def self.of_base(base)
+    return 'C' if base=='G'
+    return 'G' if base=='C'
+    return 'U' if base=='A'
+    return 'A' if base=='T'
+    return 'f'
+
+  end
+  def self.of_dna(dna)
+    rna=String.new
+    for i in 0..(dna.length-1)
+      rna[i]=self.of_base(dna[i])
+      return rna='' if rna[i]=='f'
+    end
+    rna
+  end
+end
+
+#puts Complement.of_dna('')
